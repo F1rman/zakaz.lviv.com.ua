@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+body {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  margin: 0;
+  padding: 0;
+  background: #e3f2fd; }
+
+* {
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+header {
+  background: #bbdefb;
+  display: flex; }
+  header .logo {
+    width: 70%;
+    height: 220px;
+    background-image: url("../img/logo.png");
+    background-position: center;
+    background-size: cover; }
+  header .contacts {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column; }
+    header .contacts .number:nth-child(1) a {
+      color: #55a4e8; }
+    header .contacts .number:nth-child(1) .tel {
+      background-image: url("../img/callK.svg"); }
+    header .contacts .number:nth-child(2) {
+      color: red; }
+      header .contacts .number:nth-child(2) a {
+        color: #e60000; }
+      header .contacts .number:nth-child(2) .tel {
+        background-image: url("../img/callV.svg"); }
+    header .contacts .number:nth-child(3) {
+      color: red; }
+      header .contacts .number:nth-child(3) a {
+        color: #fed403; }
+      header .contacts .number:nth-child(3) .tel {
+        background-image: url("../img/callL.svg"); }
+    header .contacts .number a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-family: fantasy;
+      font-size: 40px;
+      white-space: nowrap; }
+    header .contacts .number .tel {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 40px;
+      height: 40px;
+      margin: 10px; }
+
+section {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center; }
+  section .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column; }
+  section .iphone {
+    background-image: url("../img/iphone.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 400px;
+    height: 812px;
+    margin: 10px;
+    position: relative; }
+    section .iphone .btn {
+      position: absolute;
+      bottom: 100px;
+      left: calc(50% - 100px);
+      width: 200px;
+      margin: 0;
+      text-decoration: none; }
+    section .iphone #map {
+      height: 400px; }
+  section .row {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex; }
+
+.poslugi_h2 {
+  text-align: center;
+  font-size: 8vh;
+  color: #2980b9;
+  margin: 10px; }
+
+article {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  article .col {
+    width: calc(100% / 4);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #2980b9;
+    margin: 10px;
+    border-radius: 30px; }
+    article .col h4 {
+      font-size: 30px;
+      color: #000000;
+      margin: 10px 0;
+      text-align: center; }
+    article .col p {
+      font-size: 17px;
+      color: #000000;
+      margin: 10px 0;
+      text-align: center; }
+    article .col .icons1,
+    article .col .icons2,
+    article .col .icons3,
+    article .col .icons4,
+    article .col .icons5,
+    article .col .icons6 {
+      background-image: url("../img/pc.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 140px;
+      height: 140px;
+      margin: 10px; }
+    article .col .icons2 {
+      background-image: url("../img/notebook.svg"); }
+    article .col .icons3 {
+      background-image: url("../img/phone.svg"); }
+    article .col .icons4 {
+      background-image: url("../img/ipad.svg"); }
+    article .col .icons5 {
+      background-image: url("../img/printer.svg"); }
+    article .col .icons6 {
+      background-image: url("../img/tv.svg"); }
+
+.call_me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 100px 0; }
+
+.btn {
+  height: 100px;
+  background: #bbdefb;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  color: #ff6600;
+  box-sizing: border-box;
+  box-shadow: 2px 10px 0 #2980b9;
+  margin: 10px 20px; }
+  .btn:hover {
+    transform: translate3d(0px, 3px, 6px);
+    box-shadow: 1px 5px 0 #2980b9; }
+  .btn:active {
+    transform: translate3d(0px, 4px, 8px);
+    box-shadow: 1px 2px 0 #1e577c;
+    color: #e15b01; }
+
+.mainTextSwiper {
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  max-height: 370px; }
+  .mainTextSwiper .swiper-wrapper .swiper-slide {
+    background-color: #336d9b;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; }
+  .mainTextSwiper .swiper-wrapper .swiper-slide.slow {
+    background-image: url("../img/slow.jpg"); }
+  .mainTextSwiper .swiper-wrapper .swiper-slide.power {
+    background-image: url("../img/power.jpg"); }
+  .mainTextSwiper .swiper-wrapper .swiper-slide.anti {
+    background-image: url("../img/anti.jpg"); }
+  .mainTextSwiper .swiper-wrapper .swiper-slide.nonet {
+    background-image: url("../img/nonet.jpg"); }
+  .mainTextSwiper h1 {
+    text-align: center;
+    font-size: 8vh;
+    color: #ffffff;
+    margin: 270px auto 10px; }
+
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+  background: #bbdefb;
+  border-radius: 50%;
+  font-size: 30px;
+  font-weight: bold;
+  width: 50px;
+  cursor: pointer;
+  height: 50px;
+  transition: all 0.1s ease;
+  color: #ff6600;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 0 #2980b9;
+  margin: 10px 20px !important;
+  display: flex !important;
+  justify-content: center;
+  outline: none;
+  align-items: center; }
+
+.swiper-container-vertical > .swiper-pagination-bullets {
+  top: calc(100% - 45px) !important;
+  display: flex;
+  right: calc(50% - 135px) !important; }
+
+footer {
+  background: #bbdefb; }
+
+/*# sourceMappingURL=main.css.map */
