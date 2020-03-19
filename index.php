@@ -53,7 +53,7 @@
         від кількості днів відтермінування оплати згідно договору<br></b>
 
 
-      <h2 class="poslugi_h2"><a href="m.php">МИ НАДАЄМО ПОСЛУГИ:</a></h2>
+      <h2 class="poslugi_h2"><a href="m.php">МИ НАДАЄМО ПОСЛУГИ: <?php echo 'sd' ?></a></h2>
       <article>
         Сервіс доставки продуктів із гіпермаркетів
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim delectus, aspernatur, veniam consectetur magnam repellendus velit voluptate suscipit esse odio eaque obcaecati consequuntur ipsum hic nisi, beatae facere inventore aliquam!
