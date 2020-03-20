@@ -160,7 +160,7 @@ header {
     font-size: 30px;
     color: white; }
   #slide2 .work-blocks {
-    height: 363px;
+    min-height: 363px;
     display: flex;
     justify-content: space-between; }
     #slide2 .work-blocks .sort_number {
@@ -322,11 +322,18 @@ footer {
     flex-direction: column; }
     #slide1 .col1, #slide1 .col2 {
       min-height: 400px;
-      width: 100%; }
+      width: 100%;
+      justify-content: center; }
 
   #slide4 .col a {
     font-size: 20px; } }
 @media only screen and (max-width: 800px) {
+  #slide2 .work-blocks {
+    flex-flow: column;
+    align-items: center; }
+    #slide2 .work-blocks .work-block {
+      width: 100%; }
+
   header .logo {
     display: none; }
   header .mobile_logo {
@@ -337,5 +344,61 @@ footer {
   #slide4 .row {
     display: flex;
     flex-flow: column; } }
+@media only screen and (max-width: 415px) {
+  #slide1 h1 {
+    font-size: 25px;
+    margin: 20px 0;
+    line-height: 50px;
+    margin-bottom: 50px; }
+
+  footer .row {
+    flex-flow: column; }
+
+  #slide1 .col2 .markets {
+    flex-flow: column; }
+
+  #slide1 .col1 ul li .clock, #slide1 .col1 ul li .hand-shake, #slide1 .col1 ul li .sale {
+    width: 24px;
+    height: 24px; }
+
+  #slide1 .col1 ul li {
+    font-size: 12px; }
+
+  #slide1 .col2 h2 {
+    font-size: 14px; }
+
+  #slide2 h2, #slide3 h2 {
+    font-size: 25px; }
+
+  #slide3 .table .col {
+    font-size: 10px; }
+
+  #slide3 form {
+    margin: 20px;
+    display: flex;
+    flex-flow: column; }
+    #slide3 form input {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      box-sizing: border-box; }
+    #slide3 form button {
+      background: #f5f6f7;
+      padding: 11px;
+      outline: none;
+      width: 200px;
+      cursor: pointer;
+      margin: 10px;
+      border: 1px solid #d0d0d0;
+      transition: all 0.3s ease; }
+
+  #slide4 h2 {
+    font-size: 25px; }
+
+  #slide4 .col .contacts_head {
+    font-size: 14px; }
+
+  #slide4 .col .time_from {
+    font-size: 12px; } }
 
 /*# sourceMappingURL=main.css.map */
