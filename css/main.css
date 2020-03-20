@@ -23,6 +23,7 @@ header {
   display: flex;
   height: 72px;
   padding: 0 5%;
+  z-index: 2;
   align-self: center;
   background: white;
   position: fixed;
@@ -42,27 +43,39 @@ header {
     header ul li {
       transition: all 0.3s ease;
       margin: 10px;
-      cursor: pointer; }
+      cursor: pointer;
+      text-align: center; }
       header ul li:hover {
         color: #6098f6; }
 
-.logo {
+.logo, .mobile_logo {
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
   width: 100px;
   height: 72px;
   background-size: contain; }
 
+.mobile_logo {
+  display: none;
+  background-image: url("../img/mobile_logo.svg"); }
+
 .contacts {
   display: flex;
   flex-direction: column;
   justify-content: center; }
-  .contacts .number a {
-    text-decoration: none;
-    color: black;
-    transition: all 0.3s ease; }
-    .contacts .number a:hover {
-      color: #6098f6; }
+  .contacts .number {
+    cursor: pointer;
+    background: #6098f6;
+    padding: 10px 25px;
+    color: white; }
+    .contacts .number a {
+      text-decoration: none;
+      color: black;
+      transition: all 0.3s ease; }
+    .contacts .number:hover {
+      opacity: .9; }
+      .contacts .number:hover a {
+        color: #fff; }
 
 #slide1 {
   border-bottom: 1px solid #f5f6f7;
@@ -147,7 +160,7 @@ header {
     font-size: 30px;
     color: white; }
   #slide2 .work-blocks {
-    height: 400px;
+    height: 363px;
     display: flex;
     justify-content: space-between; }
     #slide2 .work-blocks .sort_number {
@@ -162,6 +175,7 @@ header {
       line-height: 24px;
       color: #ffffff;
       font-weight: bold;
+      text-align: center;
       font-family: monospace; }
     #slide2 .work-blocks p {
       text-align: center;
@@ -204,7 +218,7 @@ header {
   #slide3 .table {
     background: #f5f6f7;
     width: 100%;
-    margin: 0 auto; }
+    margin: 50px auto; }
     #slide3 .table input {
       background: white;
       border: #d0d0d0;
@@ -224,7 +238,11 @@ header {
       display: flex;
       align-items: center;
       padding: 10px;
-      text-align: center; }
+      flex-shrink: 10; }
+    #slide3 .table .col:first-child {
+      width: 50%;
+      flex-shrink: 1;
+      justify-content: flex-start; }
   #slide3 form {
     margin: 20px; }
     #slide3 form input {
@@ -242,20 +260,82 @@ header {
 
 #slide4 {
   background: #6098f6;
-  margin: 50px 0 0 0;
-  padding: 20px 5%; }
+  margin: 50px 0 0;
+  padding: 20px 5%;
+  min-height: 400px; }
   #slide4 h2 {
-    color: white; }
+    color: white;
+    font-size: 30px;
+    margin-bottom: 50px; }
+  #slide4 .row {
+    display: flex; }
+  #slide4 .col {
+    display: flex;
+    width: 50%;
+    flex-flow: column; }
+    #slide4 .col .time_from {
+      color: white;
+      font-size: 15px;
+      margin: 20px 0 0; }
+    #slide4 .col .contacts_head {
+      color: white;
+      font-weight: bold;
+      font-size: 20px; }
+    #slide4 .col a {
+      text-decoration: none;
+      line-height: 24px;
+      color: #284471;
+      font-size: 30px;
+      margin: 20px 0; }
 
 footer {
-  border-top: 1px solid #d0d0d0;
-  margin: 50px 0 0;
+  margin: 0;
   display: flex;
-  background: #f5f6f7;
-  flex-flow: column; }
+  background: #4674bf;
+  flex-flow: column;
+  padding: 20px 5%;
+  box-sizing: border-box; }
+  footer .row {
+    display: flex;
+    border-bottom: 1px solid #284471;
+    margin: 20px 0; }
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 100px; }
+    footer ul a, footer ul li {
+      color: white;
+      text-decoration: none;
+      margin: 22px 0; }
   footer .copuring {
     font-size: 14px;
     line-height: 14px;
-    color: #8F8F8F; }
+    color: #fff;
+    opacity: .6; }
+
+@media only screen and (max-width: 1024px) {
+  #slide1 {
+    width: 90%;
+    padding: 70px  0 0 0;
+    box-sizing: border-box;
+    flex-direction: column; }
+    #slide1 .col1, #slide1 .col2 {
+      min-height: 400px;
+      width: 100%; }
+
+  #slide4 .col a {
+    font-size: 20px; } }
+@media only screen and (max-width: 800px) {
+  header .logo {
+    display: none; }
+  header .mobile_logo {
+    display: flex; }
+  header ul {
+    display: none; }
+
+  #slide4 .row {
+    display: flex;
+    flex-flow: column; } }
 
 /*# sourceMappingURL=main.css.map */
