@@ -13,16 +13,21 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   font-family: 'Comfortaa', cursive;
   -webkit-font-smoothing: antialiased;
 }
 
 header {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   height: 72px;
+  padding: 0 5%;
   align-self: center;
   background: white;
   position: fixed;
@@ -38,6 +43,10 @@ header {
     align-items: center;
     margin: 20px;
     font-size: 1.7vh;
+
+    a {
+      color: black;
+    }
 
     li {
       transition: all 0.3s ease;
@@ -78,6 +87,7 @@ header {
 }
 
 #slide1 {
+  border-bottom: 1px solid #f5f6f7;
   width: 90%;
   margin: 0 auto;
   background: white;
@@ -175,29 +185,160 @@ header {
 }
 
 #slide2 {
-  background: white;
+  border-bottom: 1px solid #f5f6f7;
   padding-top: 82px;
   background: #6098f6;
   flex-direction: column;
+  padding: 20px 5%;
 
   .time {
     font-size: 13px;
     font-weight: bold;
+    color: #37517b;
   }
 
   h2 {
     font-size: 30px;
+    color: white;
   }
 
   .work-blocks {
-    width: 1100px;
     height: 400px;
-    background: red;
+    display: flex;
+    justify-content: space-between;
+  .sort_number{
+    font-size: 40px;
+line-height: 24px;
+color: #284471;
+opacity: 0.4;
+font-weight: bold;
+font-family: monospace;
+  }
+  h3{
+    font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: monospace;
+  }
+  p{
+    text-align: center;
+  font-weight: lighter;
+  color: white;
+  }
+    .work-block {
+      width: 33%;
+display: flex;
+flex-flow: column;
+align-items: center;
+padding: 20px;
+box-sizing: border-box;
+    }
+
+    .image-1 {
+      background-image: url("../img/clipboard.svg");
+      width: 100px;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .image-2 {
+      background-image: url("../img/order.svg");
+      width: 100px;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .image-3 {
+      background-image: url("../img/truck.svg");
+      width: 100px;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 }
 
-footer {
+#slide3 {
+  width: 90%;
+  margin: 0 auto;
+  background: white;
+  padding-top: 72px;
   display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  .table {
+    input {
+      background: white;
+      border: #d0d0d0;
+      padding: 10px;
+      border-radius: 4px;
+      outline: none;
+    }
+    background: #f5f6f7;
+    width: 100%;
+    margin: 0 auto;
+
+    .th {
+      display: flex;
+      justify-content: space-around;
+      background: #d0d0d0;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .col {
+      width: 25%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      text-align: center;
+    }
+  }
+
+  form {
+    margin: 20px;
+
+    input {
+      padding: 10px;
+      outline: none;
+    }
+
+    button {
+      background: #f5f6f7;
+      padding: 11px;
+      outline: none;
+      cursor: pointer;
+      border: 1px solid #d0d0d0;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border: 1px solid #4b8bf5;
+      }
+    }
+  }
+}
+#slide4{
+  background: #6098f6;
+margin: 50px 0 0 0;
+padding: 20px 5%;
+h2{
+color: white;
+}
+}
+footer {
+  border-top: 1px solid #d0d0d0;
+  margin: 50px 0 0;
+  display: flex;
+  background: #f5f6f7;
+  flex-flow: column;
 
   .copuring {
     font-size: 14px;

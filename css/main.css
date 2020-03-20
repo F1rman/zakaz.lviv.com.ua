@@ -10,15 +10,19 @@ body {
   margin: 0;
   padding: 0; }
 
+a {
+  text-decoration: none; }
+
 * {
   font-family: 'Comfortaa', cursive;
   -webkit-font-smoothing: antialiased; }
 
 header {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   height: 72px;
+  padding: 0 5%;
   align-self: center;
   background: white;
   position: fixed;
@@ -33,6 +37,8 @@ header {
     align-items: center;
     margin: 20px;
     font-size: 1.7vh; }
+    header ul a {
+      color: black; }
     header ul li {
       transition: all 0.3s ease;
       margin: 10px;
@@ -59,6 +65,7 @@ header {
       color: #6098f6; }
 
 #slide1 {
+  border-bottom: 1px solid #f5f6f7;
   width: 90%;
   margin: 0 auto;
   background: white;
@@ -127,22 +134,125 @@ header {
       background-image: url("../img/metro.svg"); }
 
 #slide2 {
-  background: white;
+  border-bottom: 1px solid #f5f6f7;
   padding-top: 82px;
   background: #6098f6;
-  flex-direction: column; }
+  flex-direction: column;
+  padding: 20px 5%; }
   #slide2 .time {
     font-size: 13px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #37517b; }
   #slide2 h2 {
-    font-size: 30px; }
+    font-size: 30px;
+    color: white; }
   #slide2 .work-blocks {
-    width: 1100px;
     height: 400px;
-    background: red; }
+    display: flex;
+    justify-content: space-between; }
+    #slide2 .work-blocks .sort_number {
+      font-size: 40px;
+      line-height: 24px;
+      color: #284471;
+      opacity: 0.4;
+      font-weight: bold;
+      font-family: monospace; }
+    #slide2 .work-blocks h3 {
+      font-size: 20px;
+      line-height: 24px;
+      color: #ffffff;
+      font-weight: bold;
+      font-family: monospace; }
+    #slide2 .work-blocks p {
+      text-align: center;
+      font-weight: lighter;
+      color: white; }
+    #slide2 .work-blocks .work-block {
+      width: 33%;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box; }
+    #slide2 .work-blocks .image-1 {
+      background-image: url("../img/clipboard.svg");
+      width: 100px;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: contain; }
+    #slide2 .work-blocks .image-2 {
+      background-image: url("../img/order.svg");
+      width: 100px;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: contain; }
+    #slide2 .work-blocks .image-3 {
+      background-image: url("../img/truck.svg");
+      width: 100px;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: contain; }
+
+#slide3 {
+  width: 90%;
+  margin: 0 auto;
+  background: white;
+  padding-top: 72px;
+  display: flex;
+  flex-flow: column;
+  align-items: center; }
+  #slide3 .table {
+    background: #f5f6f7;
+    width: 100%;
+    margin: 0 auto; }
+    #slide3 .table input {
+      background: white;
+      border: #d0d0d0;
+      padding: 10px;
+      border-radius: 4px;
+      outline: none; }
+    #slide3 .table .th {
+      display: flex;
+      justify-content: space-around;
+      background: #d0d0d0; }
+    #slide3 .table .row {
+      display: flex;
+      justify-content: space-around; }
+    #slide3 .table .col {
+      width: 25%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      text-align: center; }
+  #slide3 form {
+    margin: 20px; }
+    #slide3 form input {
+      padding: 10px;
+      outline: none; }
+    #slide3 form button {
+      background: #f5f6f7;
+      padding: 11px;
+      outline: none;
+      cursor: pointer;
+      border: 1px solid #d0d0d0;
+      transition: all 0.3s ease; }
+      #slide3 form button:hover {
+        border: 1px solid #4b8bf5; }
+
+#slide4 {
+  background: #6098f6;
+  margin: 50px 0 0 0;
+  padding: 20px 5%; }
+  #slide4 h2 {
+    color: white; }
 
 footer {
-  display: flex; }
+  border-top: 1px solid #d0d0d0;
+  margin: 50px 0 0;
+  display: flex;
+  background: #f5f6f7;
+  flex-flow: column; }
   footer .copuring {
     font-size: 14px;
     line-height: 14px;
