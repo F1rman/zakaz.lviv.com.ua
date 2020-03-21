@@ -9,10 +9,11 @@
   <link rel="stylesheet" href="css/main.css">
   <!-- <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <meta name="keywords" content="Сервіс доставки, Доставка, Львів, Львівська область, Товар, продукти, опт, оптові ціни, заказ">
 </head>
 
-<body>
+<body ng-app="Artmoney" ng-controller="Global">
 
 
   <header>
@@ -54,8 +55,10 @@
     </div>
   </header>
   <div class="main">
+
     <section id="slide1">
       <div class="col1">
+
         <h1>Сервіс доставки продуктів із гіпермаркетів</h1>
         <ul>
           <li><span class="sale"></span>Ціни оптові</li>
@@ -116,85 +119,48 @@
         <div class="th">
           <div class="col">Назва товару</div>
           <div class="col">Вага, Об‘єм</div>
-          <div class="col">Ціна</div>
+          <div class="col">Ціна (грн)</div>
           <div class="col">Кількість</div>
         </div>
         <div class="tbody">
-          <div class="row">
-            <div class="col">Борошно Богумила пшеничне вищий сорт</div>
-            <div class="col">2кг</div>
-            <div class="col">31грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
+          <div class="row" ng-repeat='x in products'>
+            <div class="col">{{x.name}}</div>
+            <div class="col">{{x.mass}}</div>
+            <div class="col">{{x.price}}</div>
+            <div class="col">
+              <input type="number" id="products{{$index}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); "  maxlength="2" max='100' min="0" ng-model="x.count"
+                 value="0" class="slider" />
+            <div class="add" ng-click="change(x.count,$index); x.count = ''"></div>
+              </div>
           </div>
-          <div class="row">
-            <div class="col">Борошно Хуторок пшеничне</div>
-            <div class="col">1 кг</div>
-            <div class="col">14 грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
+        </div>
+      </div>
+      <h2 ng-if="order.length != 0">Ваш заказ:</h2>
+      <div ng-if="order.length != 0" class="table">
+        <div class="th">
+          <div class="col">Назва товару</div>
+          <div class="col">Кількість</div>
+          <div class="col">Ціна (грн)</div>
+        </div>
+        <div class="tbody">
+          <div class="row" ng-repeat='i in order track by $index'>
+            <div class="col">{{i.name}}</div>
+            <div class="col">{{i.quantity}}</div>
+            <div class="col">{{i.price}}</div>
+            <div class="delete" ng-click="delete($index)"></div>
           </div>
-          <div class="row">
-            <div class="col">Макаронні вироби спіраль </div>
-            <div class="col">5 кг</div>
-            <div class="col">78 грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Цукор Хуторок кристалічний білий</div>
-            <div class="col">5 кг</div>
-            <div class="col">111 грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Цукор Хуторок </div>
-            <div class="col">800 г</div>
-            <div class="col">20 грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Папір туалетний Кохавинка</div>
-            <div class="col">1 шт</div>
-            <div class="col">5 грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Папір туалетний Сніжна панда </div>
-            <div class="col">4 шт</div>
-            <div class="col">31грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Крупа гречана Хуторок</div>
-            <div class="col">800 г</div>
-            <div class="col">41грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Крупа гречана Кожен день ядриця швидкорозварювана </div>
-            <div class="col">1 кг</div>
-            <div class="col">34грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Рис Хуторок довгий </div>
-            <div class="col">800 г</div>
-            <div class="col">25грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-          <div class="row">
-            <div class="col">Папір туалетний Сніжна панда </div>
-            <div class="col">4 шт</div>
-            <div class="col">31грн</div>
-            <div class="col"><input type="number" min="0" max="100" value="0" class="slider" /></div>
-          </div>
-
-
 
         </div>
+
+      </div>
+      <div ng-if="order.length != 0" class="order_cost" ng-class="{red:getTotal()<400}">
+      <div class="minimum" ng-if="getTotal()<400">Мінімальна сума 400 грн</div>
+      Разом:  <span class="money">{{ getTotal()?getTotal():0 }} Грн</span>
       </div>
       <h3>Введіть номер телефону і ми вам перезвоним протягом 10 хв</h3>
       <form action="">
-        <input type="number" name="" value="" placeholder="Номер телефону">
-        <input type="text" name="name" value="" placeholder="Ім'я">
+        <input type="number" name="" value="" placeholder="Номер телефону" id="number">
+        <input type="text" name="name" value="" placeholder="Ім'я" id="name">
         <button type="button" name="button">Заказати</button>
       </form>
 
@@ -221,31 +187,31 @@
     </section>
     <footer>
       <div class="row">
-      <div class="col">
-      <ul>
-        <li><a href="tel:0977099411">(097) 709-94-11</a></li>
-        <li><a href="mailto:dostavymo@gmail.com">dostavymo@gmail.com</a></li>
-        <li>Львівська обл.</li>
-      </ul>
+        <div class="col">
+          <ul>
+            <li><a href="tel:0977099411">(097) 709-94-11</a></li>
+            <li><a href="mailto:dostavymo@gmail.com">dostavymo@gmail.com</a></li>
+            <li>Львівська обл.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul>
+            <a href="#slide1">
+              <li>Про компанію</li>
+            </a>
+            <a href="#slide2">
+              <li>Як ми працюєм</li>
+            </a>
+            <a href="#slide3">
+              <li>Доставка</li>
+            </a>
+            <a href="#slide4">
+              <li>Контакти</li>
+            </a>
+          </ul>
+        </div>
       </div>
-      <div class="col">
-      <ul>
-        <a href="#slide1">
-          <li>Про компанію</li>
-        </a>
-        <a href="#slide2">
-          <li>Як ми працюєм</li>
-        </a>
-        <a href="#slide3">
-          <li>Доставка</li>
-        </a>
-        <a href="#slide4">
-          <li>Контакти</li>
-        </a>
-      </ul>
-      </div>
-      </div>
-      <div class="copuring">  © 2019–2020 «Dostavymo.in.ua» Всі права захищені</div>
+      <div class="copuring"> © 2019–2020 «Dostavymo.in.ua» Всі права захищені</div>
 
     </footer>
   </div>
@@ -255,12 +221,15 @@
 
   <script type="text/javascript">
     (function(d, w, s) {
-  	var widgetHash = 'ej4o9grf1xnjnnl68e37', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
-  	gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
-  	var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
+      var widgetHash = 'ej4o9grf1xnjnnl68e37',
+        gcw = d.createElement(s);
+      gcw.type = 'text/javascript';
+      gcw.async = true;
+      gcw.src = '//widgets.binotel.com/getcall/widgets/' + widgetHash + '.js';
+      var sn = d.getElementsByTagName(s)[0];
+      sn.parentNode.insertBefore(gcw, sn);
     })(document, window, 'script');
   </script>
-
   <script type="text/javascript" src="js/firebase-app.js"> </script>
   <script type="text/javascript" src="js/firebase-analytics.js"> </script>
   <script type="text/javascript" src="js/main.js"> </script>

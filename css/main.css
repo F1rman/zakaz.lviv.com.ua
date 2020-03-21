@@ -238,7 +238,8 @@ header {
       display: flex;
       align-items: center;
       padding: 10px;
-      flex-shrink: 10; }
+      flex-shrink: 10;
+      min-height: 56px; }
     #slide3 .table .col:first-child {
       width: 50%;
       flex-shrink: 1;
@@ -257,6 +258,38 @@ header {
       transition: all 0.3s ease; }
       #slide3 form button:hover {
         border: 1px solid #4b8bf5; }
+
+.red {
+  color: red; }
+
+.money {
+  font-weight: bold; }
+
+.add, .delete {
+  background-image: url(../img/plus.svg);
+  width: 29px;
+  height: 29px;
+  border-radius: 4px;
+  margin: 0 10px;
+  padding: 3px;
+  background-size: 50%;
+  background-position: center;
+  cursor: pointer;
+  align-self: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  transition: all .3s ease; }
+  .add:hover, .delete:hover {
+    background-color: #f5f6f7; }
+
+.order_cost {
+  align-self: flex-end;
+  margin: 50px 0;
+  font-size: 20px;
+  text-align: right; }
+
+.delete {
+  background-image: url(../img/delete.svg); }
 
 #slide4 {
   background: #6098f6;
