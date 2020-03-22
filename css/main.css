@@ -272,6 +272,7 @@ header {
   border-radius: 4px;
   margin: 0 10px;
   padding: 3px;
+  flex: none;
   background-size: 50%;
   background-position: center;
   cursor: pointer;
@@ -378,6 +379,14 @@ footer {
     display: flex;
     flex-flow: column; } }
 @media only screen and (max-width: 415px) {
+  .add, .delete {
+    padding: 1px;
+    width: 23px;
+    height: 23px; }
+
+  #slide3 .table input {
+    padding: 5px; }
+
   #slide1 h1 {
     font-size: 25px;
     margin: 20px 0;
