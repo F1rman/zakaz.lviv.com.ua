@@ -355,6 +355,7 @@ margin: 50px auto;
 .money{
   font-weight: bold;
 }
+
 .add, .delete{
   background-image: url(../img/plus.svg);
 width: 29px;
@@ -565,4 +566,11 @@ transition: all 0.3s ease;
 #slide4 .col .time_from{
   font-size: 12px;
 }
+}
+
+
+.disable{
+  border: none !important;
+  color: #d0d0d0;
+  cursor: auto !important;
 }

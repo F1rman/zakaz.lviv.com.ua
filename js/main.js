@@ -98,6 +98,12 @@ console.log(quantity, count);
     $scope.order.splice(a, 1);
     console.log(a);
   }
+  $scope.save = ()=>{
+    $scope.data = {
+
+    }
+    console.log($scope.mobile, $scope.name, $scope.order );
+  }
   $(document).ready(() => {
 
     var firebaseConfig = {
@@ -115,7 +121,8 @@ console.log(quantity, count);
     firebase.analytics();
 
 
-
+    var messagesRef = firebase.database().ref('message');
+    console.log(messagesRef);
 
 
   })
