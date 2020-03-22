@@ -8,11 +8,12 @@
   <title>Доставка продуктів з супермаркетів</title>
   <link rel="stylesheet" href="css/main.css">
 
-    <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
 
   <!-- <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-animate.min.js"></script>
   <meta name="keywords" content="Сервіс доставки, Доставка, Львів, Львівська область, Товар, продукти, опт, оптові ціни, заказ">
 </head>
 
@@ -131,10 +132,10 @@
             <div class="col">{{x.mass}}</div>
             <div class="col">{{x.price}}</div>
             <div class="col">
-              <input type="number" id="products{{$index}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); "  maxlength="2" max='100' min="0" ng-model="x.count"
-                 value="0" class="slider" />
-            <div class="add" ng-click="change(x.count,$index); x.count = ''"></div>
-              </div>
+              <input type="number" id="products{{$index}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); " maxlength="2" max='100' min="0" ng-model="x.count" value="0" placeholder="0"
+                class="slider" />
+              <div class="add" ng-click="change(x.count,$index); x.count = ''"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -156,15 +157,29 @@
         </div>
 
       </div>
-      <div ng-if="order.length != 0" class="order_cost" ng-class="{red:getTotal()<400}">
-      <div class="minimum" ng-if="getTotal()<400">Мінімальна сума 400 грн</div>
-      Разом:  <span class="money">{{ getTotal()?getTotal():0 }} Грн</span>
+      <div ng-if="order.length != 0" class="order_cost" ng-class="{red:getTotal()<399}">
+        <div class="minimum" ng-if="getTotal()<399">Мінімальна сума 400 грн</div>
+        Разом: <span class="money">{{ getTotal()?getTotal():0 }} Грн</span>
       </div>
-      <h3>Введіть номер телефону і ми вам перезвоним протягом 10 хв</h3>
-      <form action="">
-        <input type="number" name="" value="" ng-model="mobile" placeholder="Номер телефону" id="number">
-        <input type="text" name="name" value="" ng-model="name" placeholder="Ім'я" id="name">
-        <button type="button" ng-click="save()" ng-class="{'disable': getTotal()<400 || order.length == 0}"  name="button">Заказати</button>
+      <h3>Добавте товари в корзину і введіть номер телефону і ім'я</h3>
+      <form action="" name="myForm">
+        <input type="number" name="mobile" required value="" ng-model="mobile" placeholder="Номер телефону" id="number">
+        <input type="text" name="name" required value="" ng-model="name" placeholder="Ім'я" id="name">
+        <button type="button" ng-click="save()" ng-disabled="!(getTotal() > 399 && myForm.mobile.$valid && myForm.name.$valid)" ng-class="{'disable': !(getTotal() > 399 && myForm.mobile.$valid && myForm.name.$valid)}" name="button">Заказати</button>
+        <div class="message " ng-show="success">
+          <div class="check ">
+            ✔
+          </div>
+          <h2>
+            Замовлення успішно
+          </h2>
+          <p>
+            З вами звяжеться консультант найближчим часом. <br>Очікуйте звінка
+          </p>
+          <button type="button" id="ok" ng-click="success = false">
+            OK
+          </button>
+        </div>
       </form>
 
     </section>
@@ -184,7 +199,14 @@
         </div>
         <div class="col">
           <span class="contacts_head">ДОСТАВКА</span>
-          <a href="https://goo.gl/maps/nfmyryB3agQPs51m9">Львівська область</a>
+          <ul>
+            <li>м.Львів</li>
+            <li>Пустомитівський район</li>
+            <li>Кам'янка-Бузький район</li>
+            <li>Городоцький район</li>
+            <li>Перемишлянський район</li>
+
+          </ul></a>
         </div>
       </div>
     </section>
@@ -215,15 +237,10 @@
         </div>
       </div>
       <div class="copuring"> © 2019–2020 «Dostavymo.in.ua» Всі права захищені</div>
-
     </footer>
   </div>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-
-
   <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
   <script type="text/javascript">
-
     (function(d, w, s) {
       var widgetHash = 'ej4o9grf1xnjnnl68e37',
         gcw = d.createElement(s);
