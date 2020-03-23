@@ -119,7 +119,27 @@
     </section>
     <section id="slide3">
       <h2>Доступні товари для доставки:</h2>
-      <div class="table">
+      <div class="tovars">
+        <div class="card_tovar" ng-init="x.count = 0"  ng-repeat='x in products'>
+          <div class="img_tovar" style="background-image:url('img/products/{{x.img}}')"></div>
+          <hr>
+          <div class="name_tovar">{{x.name}}</div>
+          <div class="about_tovar">
+            <ul>
+              <li>Ціна : {{x.price}} грн</li>
+              <li>Вага/Об'єм : {{x.mass}}</li>
+            </ul>
+          </div>
+          <div class="quantity">
+            <div class="minus" ng-click="x.count>0?x.count=x.count-1:0">- </div>
+            <input type="number" id="products{{$index}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); " maxlength="2" max='100' min="0" ng-model="x.count" value="0"
+              class="quantity_input" />
+            <div class="plus" ng-click="x.count=x.count + 1">+</div>
+          </div>
+          <div class="buy_tovar" ng-click="change(x.count,$index); x.count = 0">Купити </div>
+        </div>
+      </div>
+      <!-- <div class="table">
         <div class="th">
           <div class="col">Назва товару</div>
           <div class="col">Вага, Об‘єм</div>
@@ -129,16 +149,16 @@
         <div class="tbody">
           <div class="row" ng-repeat='x in products'>
             <div class="col">{{x.name}}</div>
+            <div class="col"><img src="img/products/{{x.img}}" alt=""></div>
             <div class="col">{{x.mass}}</div>
             <div class="col">{{x.price}}</div>
             <div class="col">
-              <input type="number" id="products{{$index}}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); " maxlength="2" max='100' min="0" ng-model="x.count" value="0" placeholder="0"
-                class="slider" />
-              <div class="add" ng-click="change(x.count,$index); x.count = ''"></div>
+
+
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <h2 ng-if="order.length != 0">Ваш заказ:</h2>
       <div ng-if="order.length != 0" class="table">
         <div class="th">
