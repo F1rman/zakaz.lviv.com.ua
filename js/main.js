@@ -62,6 +62,12 @@ app.controller("Global", function($scope, $rootScope) {
       price: '20',
       img: 'Рис Хуторок довгий.jpg'
     },
+    {
+      name: 'Олія соняшникова Олейна Традиційна рафінована',
+      mass: '850 мл',
+      price: '28',
+      img: 'Олія соняшникова Олейна Традиційна рафінована.jpg'
+    },
 
   ]
   // for (var i = 0; i < $scope.products.length; i++) {
