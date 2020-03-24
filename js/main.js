@@ -74,13 +74,31 @@ app.controller("Global", function($scope, $rootScope) {
   //   console.log($('#product'+i).val());
   //
   // }
-
+$scope.data = new Array();
   // Model inputs
-
+$scope.minsum = 399;
+$scope.error_message = false;
+$scope.success_message = false;
   $scope.order = new Array();
   $scope.change = (quantity, count) => {
     console.log(quantity, count);
-
+    if (quantity == 0) {
+        $scope.error_message = true;
+        $scope.success_message = false;
+        setTimeout(function () {
+          $scope.error_message = false;
+          $scope.$apply()
+        }, 3000);
+        console.log('$scope.error_message');
+    }
+    else {
+      $scope.success_message = true;
+      $scope.error_message = false;
+      setTimeout(function () {
+        $scope.success_message = false;
+        $scope.$apply()
+      }, 3000);
+    }
     function pushOrder() {
       if (quantity != 0 && quantity != null && quantity != undefined) {
         $scope.order.push({
@@ -103,7 +121,13 @@ app.controller("Global", function($scope, $rootScope) {
   }
 
   $scope.delete = (a) => {
-    $scope.order.splice(a, 1);
+    console.log(a);
+    if (!a){
+      $scope.order = new Array();
+    }
+    else {
+      $scope.order.splice(a, 1);
+    }
   }
 
   var config = {
@@ -124,16 +148,17 @@ app.controller("Global", function($scope, $rootScope) {
     $scope.success = true;
     setTimeout(function() {
       $scope.success = false;
-      $scope.order = '';
-      $scope.mobile = '';
-      $scope.name = '';
+      $scope.order = new Array();
+      $scope.data.mobile = '';
+      $scope.data.name = '';
       $scope.$apply();
     }, 3000);
+    console.log($scope.order , $scope.data.mobile , $scope.data.name);
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
       order: $scope.order,
-      phome: $scope.mobile,
-      name: $scope.name
+      phone: $scope.data.mobile,
+      name: $scope.data.name
     });
   }
 
