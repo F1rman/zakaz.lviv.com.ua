@@ -172,7 +172,7 @@
         <h3>Щоб замовити введіть ім'я і номер телефону </h3>
         <input type="text" name="name" required value="" ng-model="data.name" placeholder="Ім'я" id="name">
         <input type="number" name="mobile" required value="" ng-model="data.mobile" placeholder="Номер телефону" id="number">
-        <button type="button" ng-click="save(); cart_right=!cart_right" ng-disabled="!(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)" ng-class="{'disable': !(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)}"
+        <button type="button" ng-click="save(); " ng-disabled="!(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)" ng-class="{'disable': !(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)}"
           name="button">Замовити</button>
       </form>
     </div>
