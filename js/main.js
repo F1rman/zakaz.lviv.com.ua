@@ -118,11 +118,19 @@ $scope.success_message = false;
       }
       return total;
     }
+    $scope.getTotalquantity = function() {
+      var total = 0;
+      for (var i = 0; i < $scope.order.length; i++) {
+        var product = $scope.order[i];
+        total += (product.quantity);
+      }
+      return total;
+    }
   }
 
   $scope.delete = (a) => {
     console.log(a);
-    if (!a){
+    if (!a && a !=0){
       $scope.order = new Array();
     }
     else {

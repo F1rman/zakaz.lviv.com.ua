@@ -46,7 +46,9 @@
           <div class="tel"></div>(093) 150-29-21
         </a>
       </div> -->
-      <div class="cart" ng-click="cart_right=!cart_right"></div>
+      <div class="cart" ng-click="cart_right=!cart_right">
+        <span class="new_in_cart" ng-show="order.length != 0">{{getTotalquantity()}}</span>
+      </div>
       <div class="number">
         <a href="tel:0977099411">
           Подзвонити
@@ -160,15 +162,18 @@
         </div>
       </div>
       <div ng-if="order.length != 0" class="order_cost" ng-class="{red:getTotal()< minsum}">
-        <span class="money"><span class="price_cart">{{ getTotal()?getTotal():0 }} ₴ </span><div class="delete" ng-click="delete()"></div></span>
+        <span class="money"><span class="price_cart">{{ getTotal()?getTotal():0 }} ₴ </span>
+          <div class="delete" ng-click="delete()"></div>
+        </span>
 
         <div class="minimum" ng-if="getTotal()< minsum">Мінімальна сума 400 грн</div>
       </div>
       <form action="" ng-if="order.length != 0" name="myForm">
         <h3>Щоб замовити введіть ім'я і номер телефону </h3>
         <input type="text" name="name" required value="" ng-model="data.name" placeholder="Ім'я" id="name">
-        <input type="number" name="mobile" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required value="" ng-model="data.mobile" placeholder="Номер телефону" id="number">
-        <button type="button" ng-click="save(); cart_right=!cart_right" ng-disabled="!(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)" ng-class="{'disable': !(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)}" name="button">Замовити</button>
+        <input type="number" name="mobile" required value="" ng-model="data.mobile" placeholder="Номер телефону" id="number">
+        <button type="button" ng-click="save(); cart_right=!cart_right" ng-disabled="!(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)" ng-class="{'disable': !(getTotal() >  minsum && myForm.mobile.$valid && myForm.name.$valid)}"
+          name="button">Замовити</button>
       </form>
     </div>
 
@@ -181,7 +186,7 @@
         Замовлення успішно
       </h2>
       <p>
-      Дякуємо за замовлення <strong>{{name}}</strong>! <br> З вами звяжеться консультант найближчим часом. <br>Очікуйте звінка
+        Дякуємо за замовлення <strong>{{name}}</strong>! <br> З вами звяжеться консультант найближчим часом. <br>Очікуйте звінка
       </p>
       <button type="button" id="ok" ng-click="success = false">
         OK
@@ -248,12 +253,16 @@
   <div class="success_message" ng-show="success_message">Успішно добавлено!</div>
   <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
   <script type="text/javascript">
-  (function(d, w, s) {
-	var widgetHash = 'ej4o9grf1xnjnnl68e37', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
-	gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
-	var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
-  })(document, window, 'script');
-</script>
+    (function(d, w, s) {
+      var widgetHash = 'ej4o9grf1xnjnnl68e37',
+        gcw = d.createElement(s);
+      gcw.type = 'text/javascript';
+      gcw.async = true;
+      gcw.src = '//widgets.binotel.com/getcall/widgets/' + widgetHash + '.js';
+      var sn = d.getElementsByTagName(s)[0];
+      sn.parentNode.insertBefore(gcw, sn);
+    })(document, window, 'script');
+  </script>
 
   <script type="text/javascript" src="js/main.js"> </script>
 </body>
