@@ -148,9 +148,12 @@ $scope.success_message = false;
     appId: "1:390587806668:web:5ab15e74588b1ad65f2369",
     measurementId: "G-GJ7TCLH5QR"
   };
+
   // Initialize Firebase
   firebase.initializeApp(config);
   var messagesRef = firebase.database().ref('messages');
+
+console.log();
   $scope.success = false;
   $scope.save = () => {
     $scope.success = true;

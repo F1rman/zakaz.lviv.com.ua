@@ -3,12 +3,6 @@ html {
   height: 100%;
   width: 100%; }
 
-::selection {
-  background: none; }
-
-* {
-  -webkit-tap-highlight-color: transparent; }
-
 body {
   display: flex;
   height: 100%;
@@ -59,6 +53,7 @@ header {
       transition: all 0.3s ease;
       margin: 10px;
       cursor: pointer;
+      font-size: 14px;
       text-align: center; }
       header ul li:hover {
         color: #6098f6; }
@@ -104,11 +99,15 @@ header {
       .contacts .number:hover a {
         color: #000; }
 
+.main {
+  background: linear-gradient(to right, #fff 50%, #F5F6F7 50%); }
+
 #slide1 {
   border-bottom: 1px solid #f5f6f7;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  background: white;
+  max-width: 1150px;
+  min-height: 600px;
   padding-top: 72px;
   flex-direction: column;
   display: flex;
@@ -123,7 +122,8 @@ header {
     padding: 20px 20px 20px 0;
     width: 50%;
     display: flex;
-    flex-flow: column; }
+    flex-flow: column;
+    justify-content: center; }
     #slide1 .col1 ul {
       margin: 0;
       padding: 0;
@@ -157,11 +157,11 @@ header {
     flex-flow: column;
     align-items: center; }
     #slide1 .col2 h2 {
-      margin: 20px 0; }
+      margin: 100px 0 0; }
     #slide1 .col2 .markets {
       display: flex;
-      height: 100%;
-      align-items: center; }
+      align-items: center;
+      height: 100%; }
     #slide1 .col2 .auchan,
     #slide1 .col2 .metro {
       width: 200px;
@@ -179,15 +179,12 @@ header {
   background: #6098f6;
   flex-direction: column;
   padding: 20px 5%; }
-  #slide2 .time {
-    font-size: 13px;
-    font-weight: bold;
-    color: #37517b; }
   #slide2 h2 {
     font-size: 30px;
-    color: white; }
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px; }
   #slide2 .work-blocks {
-    min-height: 363px;
     display: flex;
     justify-content: space-between; }
     #slide2 .work-blocks .sort_number {
@@ -235,13 +232,17 @@ header {
       background-size: contain; }
 
 #slide3 {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   background: white;
-  padding-top: 72px;
+  padding-top: 50px;
   display: flex;
   flex-flow: column;
   align-items: center; }
+  #slide3 h2 {
+    font-size: 30px;
+    text-align: center;
+    margin: 30px 0; }
 
 .table {
   width: 100%;
@@ -522,7 +523,6 @@ form {
 
 #slide4 {
   background: #6098f6;
-  margin: 50px 0 0;
   padding: 20px 5%;
   min-height: 400px; }
   #slide4 h2 {
@@ -559,7 +559,8 @@ form {
   width: 100%;
   justify-content: center;
   display: flex;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  padding-bottom: 50px; }
   .tovars ul {
     margin: 0 0 20px;
     padding: 0;
@@ -756,9 +757,15 @@ footer {
     opacity: 0.6; }
 
 @media only screen and (max-width: 1024px) {
-  header ul li {
-    font-size: 20px; }
+  ::selection {
+    background: none; }
 
+  * {
+    -webkit-tap-highlight-color: transparent; }
+
+  #slide1 .col1 {
+    padding: 20px 20px 20px 32px; } }
+@media only screen and (max-width: 800px) {
   #slide1 {
     width: 100%;
     padding: 70px 0 0;
@@ -770,10 +777,15 @@ footer {
       width: 100%;
       padding: 20px;
       justify-content: center; }
+      #slide1 .col1 h2,
+      #slide1 .col2 h2 {
+        margin: 0px 0 100px; }
+    #slide1 .col1 {
+      background: white; }
 
   #slide4 .col a {
-    font-size: 20px; } }
-@media only screen and (max-width: 800px) {
+    font-size: 14px; }
+
   #slide2 .work-blocks {
     flex-flow: column;
     align-items: center; }
@@ -791,6 +803,9 @@ footer {
     display: flex;
     flex-flow: column; } }
 @media only screen and (max-width: 415px) {
+  .cart_right {
+    width: 100%; }
+
   #slide4 .col {
     width: 100%; }
 
