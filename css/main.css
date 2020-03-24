@@ -393,16 +393,17 @@ form {
   color: #000;
   position: fixed;
   box-shadow: 3px 15px 30px rgba(0, 0, 0, 0.15);
-  display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: none; }
 
 .success_message {
   background: #00ff13; }
 
 .error_message.ng-hide, .success_message.ng-hide {
-  opacity: 0; }
+  opacity: 0;
+  display: flex; }
 
 .order_cost {
   margin-bottom: 50px;
