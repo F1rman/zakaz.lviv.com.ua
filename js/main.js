@@ -74,41 +74,66 @@ app.controller("Global", function($scope, $rootScope) {
   //   console.log($('#product'+i).val());
   //
   // }
-$scope.data = new Array();
+  $scope.data = new Array();
   // Model inputs
-$scope.minsum = 399;
-$scope.error_message = false;
-$scope.success_message = false;
+  $scope.minsum = 399;
+  $scope.error_message = false;
+  $scope.success_message = false;
   $scope.order = new Array();
-  $scope.change = (quantity, count) => {
-    console.log(quantity, count);
-    if (quantity == 0) {
-        $scope.error_message = true;
-        $scope.success_message = false;
-        setTimeout(function () {
-          $scope.error_message = false;
-          $scope.$apply()
-        }, 3000);
-        console.log('$scope.error_message');
+
+  //   var addToCart = function (product) {
+  //
+  //     var item = cart.find(function (item) {
+  //
+  //         return item.product === product;
+  //     });
+  //
+  //     if (item) {
+  //
+  //         item.quantity++;
+  //
+  //     } else {
+  //
+  //         cart.push({
+  //             product : product,
+  //             quantity: 1
+  //         });
+  //     }
+  // };
+
+  $scope.change = (quantity, count, item) => {
+
+    console.log(count);
+    if (quantity != 0 && quantity != null && quantity != undefined) {
+      $scope.order.push({
+        name: $scope.products[count].name,
+        quantity: quantity,
+        price: $scope.products[count].price * quantity
+      });
     }
-    else {
+    var item = $scope.order.find(function(item1) {
+
+      return item1.item === item;
+    });
+
+    if (quantity == 0) {
+      $scope.error_message = true;
+      $scope.success_message = false;
+      setTimeout(function() {
+        $scope.error_message = false;
+        $scope.$apply()
+      }, 3000);
+      console.log('$scope.error_message');
+    } else {
       $scope.success_message = true;
       $scope.error_message = false;
-      setTimeout(function () {
+      setTimeout(function() {
         $scope.success_message = false;
         $scope.$apply()
       }, 3000);
     }
-    function pushOrder() {
-      if (quantity != 0 && quantity != null && quantity != undefined) {
-        $scope.order.push({
-          name: $scope.products[count].name,
-          quantity: quantity,
-          price: $scope.products[count].price * quantity
-        });
-      }
-    }
-    pushOrder()
+
+
 
     $scope.getTotal = function() {
       var total = 0;
@@ -130,10 +155,9 @@ $scope.success_message = false;
 
   $scope.delete = (a) => {
     console.log(a);
-    if (!a && a !=0){
+    if (!a && a != 0) {
       $scope.order = new Array();
-    }
-    else {
+    } else {
       $scope.order.splice(a, 1);
     }
   }
@@ -153,7 +177,7 @@ $scope.success_message = false;
   firebase.initializeApp(config);
   var messagesRef = firebase.database().ref('messages');
 
-console.log();
+  console.log();
   $scope.success = false;
   $scope.save = () => {
     $scope.success = true;
@@ -164,7 +188,14 @@ console.log();
       $scope.data.name = '';
       $scope.$apply();
     }, 3000);
-    console.log($scope.order , $scope.data.mobile , $scope.data.name);
+    var order = JSON.stringify($scope.order);
+    $.get('https://node.verblike.com/mail', {
+      body: ['https://dostavymo.in.ua/', order, $scope.data.name, $scope.data.mobile],
+      to: 'ihorkharchyshyn@gmail.com'
+    }, function() {
+      console.log('ok');
+    });
+
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
       order: $scope.order,
@@ -173,10 +204,11 @@ console.log();
     });
   }
 
-  messagesRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      // console.log(childData);
-    });
-  });
+
+  // messagesRef.on('value', function(snapshot) {
+  //   snapshot.forEach(function(childSnapshot) {
+  //     var childData = childSnapshot.val();
+  //     // console.log(childData);
+  //   });
+  // });
 });
